@@ -1,0 +1,35 @@
+# coding: utf-8
+
+import os
+
+
+BASE_DIR = os.path.abspath(".")
+
+SECRET_KEY = 'secret'
+
+JSON_AS_ASCII = False
+
+# flask-sqlalchemy (https://flask-sqlalchemy.palletsprojects.com/en/2.x/)
+SQLALCHEMY_ECHO = True
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'sandbox.db')  # noqa
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+# redis
+REDIS_URI = 'redis://127.0.0.1:6379/0'
+
+# celery (http://flask.pocoo.org/docs/1.0/patterns/celery/)
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/1'  # noqa
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/2'  # noqa
+
+# aws
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+AWS_REGION = 'ap-northeast-1'
+
+
+# authlib
+OAUTH2_REFRESH_TOKEN_GENERATOR = True
+
+# oauth
+GITHUB_CLIENT_ID = ''
+GITHUB_CLIENT_SECRET = ''

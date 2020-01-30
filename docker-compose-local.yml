@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  mysql:
+    image: mysql:5.6
+    environment:
+      MYSQL_ROOT_PASSWORD: sa
+      MYSQL_DATABASE: sandbox
+      MYSQL_USER: develop
+      MYSQL_PASSWORD: develop
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+        - ./data/:/var/www
+    ports:
+        - 13306:3306
+
+  redis:
+    image: redis:3.2
+    ports: 
+      - 6379:6379
